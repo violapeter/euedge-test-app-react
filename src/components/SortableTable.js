@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import data from '../../persons.json'
 import PersonRow from './PersonRow'
 import TableHead from './TableHead'
 import css from './SortableTable.css'
@@ -10,12 +9,12 @@ export default class SortableTable extends Component {
   }
 
   render () {
-    //const { data } = this.props
+    const { persons } = this.props
 
     return (<table className='Table'>
       <TableHead />
       <tbody>
-        {data.sort().map((row, id) => <PersonRow key={id} {...row} />)}
+        {persons ? persons.sort().map((row, id) => <PersonRow key={id} {...row} />) : null}
       </tbody>
     </table>)
   }

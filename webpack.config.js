@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -25,6 +26,9 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html'
+    }),
+    new webpack.DefinePlugin({
+      __PERSONS_API__: JSON.stringify('./persons.json')
     })
   ]
 }

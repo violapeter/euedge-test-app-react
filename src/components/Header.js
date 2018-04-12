@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import css from './Header.css'
 import Button from './Button'
-import Icon from './Icon'
+import css from './Header.css'
 
-const Header = () =>
+const Header = props =>
   <div className='Header'>
     <h1>Persons</h1>
-    <Button type='primary' icon='add'>
+    <Button type='primary' icon='add' onClick={props.onOpenEditor}>
       Add person
     </Button>
   </div>

@@ -1,22 +1,15 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom'
-import css from './main.css'
-import reducer from 'reducer'
-import SortableTable from './components/SortableTable'
-import Header from './components/Header'
-import Dialog from './components/Dialog'
+import App from './components/App'
+import { createStore, applyMiddleware } from 'redux'
+import reducer from './reducer'
+import thunk from 'redux-thunk'
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(thunk))
 
-const App = () =>
+ReactDOM.render(
   <Provider store={store}>
-    <div className='App'>
-      <Header />
-      <SortableTable />
-      <Dialog title='Add person' primary='Add' secondary='Cancel' />
-    </div>
-  </Provider>
-
-
-ReactDOM.render(<App/>, document.getElementById('app'))
+    <App />
+  </Provider>,
+  document.getElementById('app'))
