@@ -1,0 +1,17 @@
+.TableHead th {
+    border-bottom: 1px solid #aaa;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    text-align: left;
+    text-transform: uppercase;
+    vertical-align: bottom;
+}
+
+.TableHead th:hover {
+    background: #F4F5F7;
+}
+
+.TableHead .TableHead__age {
+    text-align: right;
+}

@@ -1,0 +1,53 @@
+.Person td {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 10px;
+    min-height: 50px;
+}
+
+.Person:hover td {
+    background: #F4F5F7;
+}
+
+.Person__name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.Person__job {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.Person__age {
+    text-align: right;
+}
+
+.Person__not-provided {
+    color: #ccc;
+}
+
+.Person__actions {
+    width: 34px;
+    text-align: right;
+}
+
+.Person__delete {
+    background: none;
+    cursor: pointer;
+    border: 0;
+    padding: 5px;
+    outline: none;
+}
+
+.Person__delete svg {
+    fill: transparent;
+}
+
+.Person:hover .Person__delete svg {
+    fill: #ddd;
+}
+
+.Person:hover .Person__delete:hover svg {
+    fill: #888;
+}

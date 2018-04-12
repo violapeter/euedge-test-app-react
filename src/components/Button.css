@@ -1,0 +1,47 @@
+.Button {
+    align-items: center;
+    background: none;
+    border: none;
+    color: currentColor;
+    display: flex;
+    letter-spacing: 1px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-transform: uppercase;
+    outline: none;
+    padding: 10px 15px;
+}
+
+.Button__primary {
+    background: #6554C0;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.Button__primary:hover {
+    background: #8777D9;
+}
+
+.Button__primary .Icon {
+    fill: #EAE6FF;
+}
+
+.Button__secondary {
+    background: transparent;
+    border-radius: 3px;
+    box-shadow: inset 0 0 2px #6554C0;
+    color: #6554C0;
+}
+
+.Button__secondary:hover {
+    background: #8777D9;
+    box-shadow: none;
+    color: #fff;
+}
+
+.Button__secondary .Icon {
+    fill: #8777D9;
+}
+
+.Button .Icon {
+    margin: 0 10px 0 0;
+}

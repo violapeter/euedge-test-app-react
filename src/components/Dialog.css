@@ -1,0 +1,82 @@
+.Dialog {
+    align-items: center;
+    background: rgba(0, 0, 0, .75);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: opacity .2s ease,
+                visibility .2s ease;
+    visibility: hidden;
+    z-index: 600;
+}
+
+.Dialog__box {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 14px rgba(0, 0, 0, .12),
+                0 7px 12px rgba(0, 0, 0, .19);
+    opacity: 0;
+    padding: 32px;
+    position: relative;
+    transform: scale(.8);
+    transition: opacity .2s ease,
+                visibility .2s ease,
+                transform .2s ease;
+    visibility: hidden;
+}
+
+.Dialog__close {
+    fill: #9c9c9c;
+    font-size: 10px;
+    height: 18px;
+    line-height: 12px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 18px;
+}
+
+.Dialog__close:hover {
+    fill: #ddd;
+}
+
+.Dialog__title {
+    font-size: 18px;
+    margin: 0 0 20px;
+}
+
+.Dialog__content {
+    color: #404041;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 30px;
+    max-width: 60vw;
+    min-width: 260px;
+}
+
+.Dialog__actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Dialog__actions .Button {
+    margin: 0 0 0 15px;
+}
+
+.Dialog.is-opened {
+    opacity: 1;
+    visibility: visible;
+}
+
+.Dialog.is-opened .Dialog__box {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
