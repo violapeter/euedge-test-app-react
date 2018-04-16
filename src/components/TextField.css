@@ -1,0 +1,14 @@
+.TextInput {
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  outline: 0;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.TextInput:focus {
+  border-color: #6554C0;
+}

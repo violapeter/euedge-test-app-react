@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
-import SortableTable from './SortableTable'
+import PersonsTable from './PersonsTable'
+import EditorForm from './EditorForm'
 import Header from './Header'
+import DataDump from './DataDump'
 import Dialog from './Dialog'
 import css from './App.css'
 
@@ -13,19 +15,33 @@ class App extends Component {
   }
 
   render () {
-    const { persons, isEditorOpened } = this.props
-    const { openEditor, closeEditor } = this.props.actions
+    const { persons, isEditorOpened, isDeleterOpened, sortBy, sortOrder } = this.props
+    const { openEditor, closeEditor, openDeleter, closeDeleter, sortPersons } = this.props.actions
 
     return (
       <div className='App'>
         <Header onOpenEditor={() => openEditor()} />
-        <SortableTable persons={persons} />
+        <PersonsTable
+          persons={persons}
+          sortPersons={sortType => sortPersons(sortType)}
+          sortBy={sortBy}
+          sortOrder={sortOrder}
+          onPersonDelete={id => openDeleter(id)} />
         <Dialog
           onClose={() => closeEditor()}
           opened={isEditorOpened}
           title='Add person'
           primary='Add'
+          secondary='Cancel'>
+          <EditorForm />
+        </Dialog>
+        <Dialog
+          onClose={() => closeDeleter()}
+          opened={isDeleterOpened}
+          title='Are you sure you want to delete it?'
+          primary='Yes'
           secondary='Cancel' />
+        <DataDump obj={persons} />
       </div>
     )
   }
