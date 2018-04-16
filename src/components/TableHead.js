@@ -3,8 +3,6 @@ import css from './TableHead.css'
 import * as sortTypes from '../sortTypes'
 
 const SortableThead = props => {
-  console.log(props.sortBy, props.sortType)
-
   const getClassNames = () => [
     props.sortBy === props.sortType ? 'is-sorted' : '',
     props.align ? `TableHead--${props.align}` : '',

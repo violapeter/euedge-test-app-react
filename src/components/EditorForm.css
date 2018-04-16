@@ -8,3 +8,12 @@
   display: flex;
   width: 80px;
 }
+
+.FormActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.FormActions > .Button {
+  margin: 0 0 0 20px;
+}

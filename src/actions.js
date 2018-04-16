@@ -9,6 +9,8 @@ export const closeDeleter = () => ({ type: actionTypes.CLOSE_DELETER })
 
 export const sortPersons = sortType => ({ type: actionTypes.SORT_PERSONS, sortType })
 
+export const dumpFormData = data => ({ type: actionTypes.DUMP_FORM_DATA, data })
+
 const requestPersons = () => ({ type: actionTypes.REQUEST_PERSONS })
 const errorPersons = error => ({ type: actionTypes.ERROR_PERSONS, error })
 const receivePersons = persons => ({ type: actionTypes.RECEIVE_PERSONS, persons })
@@ -16,11 +18,7 @@ const receivePersons = persons => ({ type: actionTypes.RECEIVE_PERSONS, persons 
 export const loadPersons = () => dispatch => {
   dispatch(requestPersons())
   return fetch(__PERSONS_API__)
-    .then(
-      response => {
-        if (!response.ok) dispatch(errorPersons(response))
-        return response.json()
-      }
-    )
+    .then(response => response.json())
     .then(response => dispatch(receivePersons(response)))
+    .catch(err => dispatch(errorPersons(err)))
 }

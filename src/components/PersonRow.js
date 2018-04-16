@@ -13,7 +13,7 @@ const PersonRow = props =>
     </td>
     <td className='Person__age'>{props.age}</td>
     <td>{props.nick}</td>
-    <td>
+    <td className='Person__employee'>
       <Checkbox checked={props.employee} id={`employee-${props.id}`} readOnly />
     </td>
     <td className='Person__actions'>

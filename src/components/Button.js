@@ -3,7 +3,7 @@ import css from './Button.css'
 import Icon from './Icon'
 
 const Button = props =>
-  <button className={`Button Button__${props.type}`} {...props}>
+  <button className={`Button Button__${props.level}`} {...props}>
     {props.icon
       ? <Icon size={16} icon={props.icon} />
       : null}

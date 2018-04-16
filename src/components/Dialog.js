@@ -28,10 +28,10 @@ export default class Dialog extends Component {
 
         <div className='Dialog__actions'>
           {primary
-            ? <Button onClick={() => this.handlePrimary()} type='primary'>{primary}</Button>
+            ? <Button onClick={() => this.handlePrimary()} level='primary'>{primary}</Button>
             : null}
           {secondary
-            ? <Button onClick={() => this.handleSecondary()} type='secondary'>{secondary}</Button>
+            ? <Button onClick={() => this.handleSecondary()} level='secondary'>{secondary}</Button>
             : null}
         </div>
       </div>

@@ -5,7 +5,7 @@ import css from './Header.css'
 const Header = props =>
   <div className='Header'>
     <h1>Persons</h1>
-    <Button type='primary' icon='add' onClick={props.onOpenEditor}>
+    <Button level='primary' icon='add' onClick={props.onOpenEditor}>
       Add person
     </Button>
   </div>

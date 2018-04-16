@@ -23,6 +23,10 @@
     text-align: right;
 }
 
+.Person__employee {
+  text-align: center;
+}
+
 .Person__not-provided {
     color: #ccc;
 }

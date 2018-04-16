@@ -7,10 +7,11 @@ const initialState = {
   selectToDelete: false,
   sortBy: sortTypes.NAME,
   sortOrder: sortTypes.ASC,
+  dumpedData: {},
   persons: []
 }
 
-const personsReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.REQUEST_PERSONS:
       return state
@@ -31,7 +32,6 @@ const personsReducer = (state = initialState, action) => {
     case actionTypes.CLOSE_DELETER:
       return { ...state, isDeleterOpened: false }
     case actionTypes.SORT_PERSONS:
-      console.log(action.sortType)
       return {
         ...state,
         sortBy: action.sortType,
@@ -40,9 +40,11 @@ const personsReducer = (state = initialState, action) => {
           ? sortTypes.DESC
           : sortTypes.ASC
       }
+    case actionTypes.DUMP_FORM_DATA:
+      return { ...state, dumpedData: action.data }
     default:
       return state
   }
 }
 
-export default personsReducer
+export default appReducer

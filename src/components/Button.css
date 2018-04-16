@@ -6,6 +6,8 @@
     display: flex;
     letter-spacing: 1px;
     font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
     text-transform: uppercase;
     outline: none;
     padding: 10px 15px;

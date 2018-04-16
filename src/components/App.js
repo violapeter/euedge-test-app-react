@@ -15,12 +15,17 @@ class App extends Component {
   }
 
   render () {
-    const { persons, isEditorOpened, isDeleterOpened, sortBy, sortOrder } = this.props
-    const { openEditor, closeEditor, openDeleter, closeDeleter, sortPersons } = this.props.actions
+    const { persons, isEditorOpened, isDeleterOpened, sortBy, sortOrder, dumpedData } = this.props
+    const { openEditor, closeEditor, openDeleter, closeDeleter, sortPersons, dumpFormData } = this.props.actions
+
+    const handleSubmit = data => {
+      dumpFormData(data)
+      closeEditor()
+    }
 
     return (
       <div className='App'>
-        <Header onOpenEditor={() => openEditor()} />
+        <Header onOpenEditor={openEditor} />
         <PersonsTable
           persons={persons}
           sortPersons={sortType => sortPersons(sortType)}
@@ -28,28 +33,24 @@ class App extends Component {
           sortOrder={sortOrder}
           onPersonDelete={id => openDeleter(id)} />
         <Dialog
-          onClose={() => closeEditor()}
+          onClose={closeEditor}
           opened={isEditorOpened}
-          title='Add person'
-          primary='Add'
-          secondary='Cancel'>
-          <EditorForm />
+          title='Add person'>
+          <EditorForm cancelEdit={closeEditor} onSubmit={data => handleSubmit(data)} />
         </Dialog>
         <Dialog
-          onClose={() => closeDeleter()}
+          onClose={closeDeleter}
           opened={isDeleterOpened}
           title='Are you sure you want to delete it?'
           primary='Yes'
           secondary='Cancel' />
-        <DataDump obj={persons} />
+        <DataDump obj={dumpedData} />
       </div>
     )
   }
 }
 
 export default connect(
-  (state) => ({ ...state }),
-  (dispatch) => ({
-    actions: bindActionCreators(actions, dispatch)
-  })
+  state => ({ ...state }),
+  dispatch => ({ actions: bindActionCreators(actions, dispatch) })
 )(App)
